@@ -132,7 +132,7 @@ otp.config_defaults = {
 
     // when enabled, adds another item to the accordion for attribution
     attributionPanel : {
-        enabled         : false,
+        enabled         : true,
         panelTitle      : otp.config.locale.config.attribution.title,
         attributionHtml : '<p class="disclaimer">' + otp.config.locale.config.attribution.content + '</p>'
     },

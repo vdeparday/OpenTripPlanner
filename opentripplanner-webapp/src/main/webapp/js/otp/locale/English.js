@@ -25,8 +25,25 @@ otp.locale.English = {
         metricsSystem : "english",
         rightClickMsg : "Right-click on the map to designate the start and end of your trip.",
         attribution   : {
-            title   : "License Attribution",
-            content : "Disclaimer goes here"
+            title   : "Attribution",
+            content : '<div class="disclaimer"><p>Data sources used for the routing:</p>\
+<ul><li> Streets, bike paths and footways from <a href="http://openstreetmap.org" target="#">Openstreetmap</a> licensed CC-By-SA</li>\
+<li>Bus and Train OCTranspo data from the <a href="http://www.ottawa.ca/online_services/opendata/info/index_en.html" target="#">Ottawa open data catalogue</a></li>\
+<li>Digital Elevation Data from <a href="http://www.geobase.ca" target="#">Geobase</a> to generate the elevation profiles</li>\
+</ul>\
+<br><p>The code source of this application comes from the open source project OpenTripPlanner (OTP). The code and more information are available at <a href="http://opentripplanner.org" target="#">opentripplanner.org</p></a>\
+<br><p> Thank you to all the OpenStreetMap contributors.<br> Thank you to all the contributors to OpenTripPlanner and to all the contributors to its underlying open source technologies: \
+<a target="_blank" href="http://openlayers.org">OpenLayers</a>, \
+<a target="_blank" href="http://extjs.com">Extjs</a>, \
+<a target="_blank" href="http://www.geotools.org/">GeoTools</a>, \
+<a target="_blank" href="http://tomcat.apache.org">Tomcat</a>, \
+and others open source software used along the way \
+<a target="_blank" href="http://www.eclipse.org">Eclipse</a>, \
+<a target="_blank" href="http://www.mozilla.com/firefox">firefox</a>, \
+<a target="_blank" href="http://www.getfirebug.com">firebug</a>, \
+<a target="_blank" href="http://www.qgis.org">QGIS</a>, and\
+<a target="_blank" href="http://www.gdal.org">GDAL</a> to name a few.</p>\
+</div>'
         }
     },
 
