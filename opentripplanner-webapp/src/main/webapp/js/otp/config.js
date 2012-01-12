@@ -146,13 +146,15 @@ otp.config_defaults = {
 
     // presents a dialog on initial startup of the app, with a message for your customers
     splashScreen : {
-        enabled: false,
+        enabled: true,
         timeout: 20,   // seconds to stay open - if <= ZERO, then dialog does not timeout and requires the customer to close the dialog
         title:   'Important: Please read',
-        html:    '<p class="splash-screen">'
-                 + 'Please note that the trip routing presented here is for demonstration purposes of the <a href="http://opentripplanner.com" target="#">OpenTripPlanner (OTP)</a> only, '
-                 + 'and not intended as a travel resource.  You will begin to see improvements in the planned trips as the project matures.  A public beta is scheduled for spring 2011. '
-                 + '</p>'
+        html:     '<p class="splash-screen">'
+                 + 'This trip routing application was put together for the <a href="http://www.apps4ottawa.ca/" target="#">Ottawa Open Data App Contest.</a> The description of the application can be found <a href="http://www.apps4ottawa.ca/en/apps/91" target="#">here</a>.<br><br>'
+                 + 'Please note that it is not yet intended as a travel resource. It is presented here for demonstration purposes for the promotion of open data, open source software and sustainable means of transportation. '
+                 + 'You will see improvements in the planned trips as the data get corrected and improved, and the project matures.'
+                 + '<br><br>See the data and code attribution in the left panel.'
+                 + '<br><br>If you fee like an amateur cartographer and you want to help to improve the cycle map and routing, have a look at the bottom of the left panel ! </p>'
     },
 
     systemMap : {
