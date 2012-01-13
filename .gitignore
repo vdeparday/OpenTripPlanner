@@ -23,6 +23,7 @@ opentripplanner-webapp/src/main/webapp/js/otp-min.js
 .classpath
 .project
 .settings
+.directory
 *.ipr
 *.iml
 *.iws
