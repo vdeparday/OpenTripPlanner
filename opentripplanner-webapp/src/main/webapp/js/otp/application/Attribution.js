@@ -30,7 +30,8 @@ otp.application.Attribution = {
         this.panel = new Ext.Panel({
                 html: this.attributionHtml,
                 title: this.panelTitle,
-                layout: 'fit'
+                layout: 'fit',
+                padding: 8
             });
     },
 

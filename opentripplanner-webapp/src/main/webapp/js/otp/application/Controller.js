@@ -31,7 +31,9 @@ otp.application.Controller = {
     /** */
     initialize : function(config)
     {
-        this.config = otp.util.ObjUtils.getConfig(config);
+        
+    	OpenLayers.ImgPath = "http://js.mapbox.com/theme/dark/";
+    	this.config = otp.util.ObjUtils.getConfig(config);
 
         // set defaults on the config.map if things don't already exist
         otp.inherit(this.config.map, {
@@ -76,7 +78,12 @@ otp.application.Controller = {
             this.attributionPanel = new otp.application.Attribution(this.config.attributionPanel);
             this.ui.accordion.add(this.attributionPanel.getPanel());
         }
-
+        
+        if (this.config.contactPanel.enabled) {
+        	this.contactPanel = new otp.application.ContactPanel(this.config.contactPanel);
+        	this.ui.accordion.add(this.contactPanel.getPanel());
+        }
+        
         this.ui.doLayout();
         this.load();
 
