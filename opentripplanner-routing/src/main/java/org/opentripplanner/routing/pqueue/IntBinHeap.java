@@ -16,7 +16,8 @@ package org.opentripplanner.routing.pqueue;
 import java.util.Arrays;
 
 public class IntBinHeap implements OTPPriorityQueue<Integer> {
-    
+
+    public static int NOT_AN_ELEMENT = Integer.MIN_VALUE;
     private static final double GROW_FACTOR = 2.0;
     
     private double[] prio;
@@ -33,10 +34,11 @@ public class IntBinHeap implements OTPPriorityQueue<Integer> {
     	this.capacity = capacity;
     	size = 0;
         elem = new int[capacity + 1];
+        elem[0] = Integer.MIN_VALUE;
         prio = new double[capacity + 1];    // 1-based indexing
         prio[0] = Double.NEGATIVE_INFINITY; // set sentinel
     }
-    
+
     public int size() {
     	return size;
     }
