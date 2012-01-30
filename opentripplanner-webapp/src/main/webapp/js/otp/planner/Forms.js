@@ -64,6 +64,8 @@ otp.planner.StaticForms = {
     m_modeForm            : null,
     m_wheelchairForm      : null,
     m_optionsManager      : null,
+    infoGeneral           : null,
+    infoMode              : null,
 
     m_bikeTriangle          : null,
     m_bikeTriangleContainer : null,
@@ -798,6 +800,7 @@ otp.planner.StaticForms = {
      */
     makeMainPanel : function()
     {
+        var infoBox     = this.makeInfoBox();
         var fromToForms = this.makeFromToForms();
         var dateTime    = this.makeDateTime();
         var fromToArray = [fromToForms, dateTime];
@@ -846,7 +849,8 @@ otp.planner.StaticForms = {
             buttonAlign: 'center',
             border:      false,
             keys:        {key: [10, 13], scope: this, handler: this.submit},
-            items:       [  fromToFP,
+            items:       [  infoBox,
+                            fromToFP,
                             optFP,
                             this.m_routerIdForm,
                             this.m_toPlace,
@@ -1272,13 +1276,16 @@ otp.planner.StaticForms = {
         var filter = otp.planner.FormsOptionsManagerStatic.getOptimizeFilter(true, false);
         this.m_optimizeForm.getStore().filterBy(filter);
 
+        this.infoMode = new Ext.Template("<div class='mapHelp' id='infoMode' style='display: none'><b>Caution:</b> Bike racks on buses are not available during the winter season (Nov 1st to mid-April). Bicycles can be brought on the O-Train year-round. More information <a href='http://www.ottawa.ca/residents/onthemove/travelwise/transit/tr_4_en.html' target='#'> here</a>.</div>");
+
         if (this.useOptionDependencies) {
             var usecfg = {
                 mode:         this.m_modeForm,
                 optimize:     this.m_optimizeForm,
                 maxWalk:      this.m_maxWalkDistanceForm,
                 locale:       this.locale,
-                bikeTriangle: this.m_bikeTriangle
+                bikeTriangle: this.m_bikeTriangle,
+                infoMode:     this.infoMode
             };
 
             if(this.showWheelchairForm)
@@ -1287,7 +1294,7 @@ otp.planner.StaticForms = {
             this.m_optionsManager = new otp.planner.FormsOptionsManager(usecfg);
         }
 
-        var retVal = [this.m_modeForm, this.m_optimizeForm, this.m_bikeTriangleContainer, this.m_maxWalkDistanceForm];
+        var retVal = [this.m_modeForm, this.m_optimizeForm, this.m_bikeTriangleContainer, this.m_maxWalkDistanceForm, this.infoMode];
         if(this.showWheelchairForm)
             retVal.push(this.m_wheelchairForm);
 
@@ -1326,6 +1333,11 @@ otp.planner.StaticForms = {
         }
         catch(e) {}
         return retVal;
+    },
+
+    makeInfoBox : function() {
+        this.infoGeneral = new Ext.Template("<div class='mapHelp'>Enter addresses in the form or right-click on the map to designate the start and end of your trip.</div>");
+        return this.infoGeneral;
     },
 
     CLASS_NAME: "otp.planner.Forms"

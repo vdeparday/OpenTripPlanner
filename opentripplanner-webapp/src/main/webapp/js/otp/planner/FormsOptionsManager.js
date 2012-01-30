@@ -34,6 +34,7 @@ otp.planner.FormsOptionsManagerStatic = {
     locale:        null,
     bikeTriangle:  null,
     bikeDefault:   "TRIANGLE",
+    infoMode:      null,
 
     // the optimize store is used to control the optimize options
     optimizeStore: null,
@@ -74,6 +75,7 @@ otp.planner.FormsOptionsManagerStatic = {
         this.optimizeStore.clearFilter();
         var showTransitOptions = false;
         var showBikeOptions = false;
+        Ext.get('infoMode').setDisplayed('none');
         
         // if we're neither a bike nor a transit mode
         // then we don't show the optimize options at all
@@ -137,6 +139,11 @@ otp.planner.FormsOptionsManagerStatic = {
             if(this.bikeDefault == "TRIANGLE") {
                 this.bikeTriangle.enable();
             }
+        }
+
+        if (this.isTransitAndBicyle(mode)) {
+                Ext.get('infoMode').show();
+                this.maxWalk.label.update(this.locale.tripPlanner.labels.maxBikeDistance+':');
         }
     },
 
@@ -209,6 +216,9 @@ otp.planner.FormsOptionsManagerStatic = {
 
     isWalk : function(mode) {
         return mode.indexOf("WALK") !== -1;
+    },
+    isTransitAndBicyle : function(mode){
+        return mode.indexOf("TRANSIT,BICYCLE") !== -1;
     },
 
     CLASS_NAME: "otp.planner.FormsOptionsManager"
