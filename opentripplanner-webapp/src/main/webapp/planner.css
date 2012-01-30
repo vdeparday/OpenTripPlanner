@@ -1,3 +1,7 @@
+.mapHelp {
+font-size: 12px;
+}
+
 div.olMap {
 background: #81bee7 !important;
 }
@@ -75,8 +79,8 @@ font-size: x-small;
 
 
 .splash-screen {
-font-size: 135%;
-padding: 20px;
+font-size: 115%;
+padding: 15px;
 }
 
 .clear-button {

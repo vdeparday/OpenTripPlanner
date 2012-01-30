@@ -78,8 +78,8 @@ otp.config_defaults = {
         // The default extent to zoom the map to when the web app loads.
         // This can either be an OpenLayers.Bounds object or the string "automatic"
         // If set to "automatic", the client will ask the server for the default extent.
-        defaultExtent: "automatic",
-     
+        defaultExtent: new OpenLayers.Bounds(-76.32,45.01,-75.07,45.69),
+
         // These options are passed directly to the OpenLayers.Map constructor.
         options : {
             projection        : new OpenLayers.Projection("EPSG:900913"),
@@ -136,26 +136,26 @@ otp.config_defaults = {
         panelTitle      : otp.config.locale.config.attribution.title,
         attributionHtml : '<p class="disclaimer">' + otp.config.locale.config.attribution.content + '</p>'
     },
-    
+
     contactPanel: {
     	enabled: true,
     	panelTitle: 'Give Feedback | Get involved',
-    	contactHtml: '<div class="disclaimer"><p>To give feedback on the application or report missing data and unexpected/non-optimal routes, you can send me an email at vivien.deparday@gmail.com</p><br>'
-			+ '<p>As the data used for the routing comes from a open community-produced data source called OpenStreetMap, anyone can help to improve the cycle map and the routing, so if you feel like an amateur cartographer and you want to help, you can get in touch with me or you can start mapping directly with OpenStreetMap, you will find some information <a target="_blank" href="http://wiki.openstreetmap.org/wiki/Main_Page"> here</a>.</p>'
-			+ 'The application submission page is available <a target="_blank" href="http://apps4ottawa.ca/en/apps/91"> here. </a></div> '
+        contactHtml: '<div class="disclaimer"><p>To give feedback on the application or report missing data and unexpected/non-optimal routes, you can send me an email at <b>vivien.deparday@gmail.com</b></p><br>'
+            + '<p>A brief description of the application is available <a target="_blank" href="http://apps4ottawa.ca/en/apps/91"> here. </a></p><br>'
+            + '<p>Since the data used for the routing comes from a open community-produced data source called OpenStreetMap, anyone can help to improve the cycle map and the routing, so if you feel like an amateur cartographer and you want to help, you can get in touch with me or you can start mapping directly with OpenStreetMap, you will find some information <a target="_blank" href="http://wiki.openstreetmap.org/wiki/Main_Page"> here</a>.</p></div>'
     },
 
     // presents a dialog on initial startup of the app, with a message for your customers
     splashScreen : {
         enabled: true,
-        timeout: 20,   // seconds to stay open - if <= ZERO, then dialog does not timeout and requires the customer to close the dialog
+        timeout: 0,   // seconds to stay open - if <= ZERO, then dialog does not timeout and requires the customer to close the dialog
         title:   'Important: Please read',
-        html:     '<p class="splash-screen">'
-                 + 'This trip routing application was put together for the <a href="http://www.apps4ottawa.ca/" target="#">Ottawa Open Data App Contest.</a> The description of the application can be found <a href="http://www.apps4ottawa.ca/en/apps/91" target="#">here</a>.<br><br>'
-                 + 'Please note that it is not yet intended as a travel resource. It is presented here for demonstration purposes for the promotion of open data, open source software and sustainable means of transportation. '
-                 + 'You will see improvements in the planned trips as the data get corrected and improved, and the project matures.'
-                 + '<br><br>See the data and code attribution in the left panel.'
-                 + '<br><br>If you fee like an amateur cartographer and you want to help to improve the cycle map and routing, have a look at the bottom of the left panel ! </p>'
+        html:    '<p class="splash-screen">'
+            + 'This trip routing application was put together for the <a href="http://www.apps4ottawa.ca/" target="#">Ottawa Open Data App Contest.</a> The description of the application can be found <a href="http://www.apps4ottawa.ca/en/apps/91" target="#">here</a>.<br><br>'
+            + 'Even though the contest is over, it is still presented here for demonstration purposes for the promotion of open data, open source software and sustainable means of transportation. '
+            + '<br><br>Please note that it is not yet intended as a travel resource. You will see improvements in the planned trips as the data get corrected and improved, and the project matures.'
+            + '<br><br>See the data and code attribution in the left panel.'
+            + '<br><br>If you fee like an amateur cartographer and you want to help to improve the cycle map and routing, have a look at the bottom of the left panel ! </p>'
     },
 
     systemMap : {
