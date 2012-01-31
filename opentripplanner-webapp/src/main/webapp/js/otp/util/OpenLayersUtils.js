@@ -79,7 +79,7 @@ otp.util.OpenLayersUtils = {
     /**
      * static routine that adds controls to a map 
      */
-    defaultControls : function(map, doZoomWheel, doRightClicks, doPermaLink, doAttribution, doHistory)
+    defaultControls : function(map, doZoomWheel, doRightClicks, doPermaLink, doAttribution, doHistory, doLayerSwitch)
     {
         var retVal = {
             //pan   : new OpenLayers.Control.PanZoomBar({zoomWorldIcon:true}),
@@ -115,6 +115,13 @@ otp.util.OpenLayersUtils = {
             var h = new OpenLayers.Control.NavigationHistory();
             retVal.hist = h;
             map.addControl(h);
+        }
+
+        if(doLayerSwitch)
+        {
+            var s = new OpenLayers.Control.LayerSwitcher();
+            retVal.layerSwitch = s;
+            map.addControl(s);
         }
 
         return retVal;
