@@ -3,7 +3,7 @@
  *
  * NOTE:
  *   - for apps that support a single language simply set your locale here (or in your .html file prior to including config.js)
- *   - for apps that support multiple languages, you will need a scheme that determines the user's desired language,  
+ *   - for apps that support multiple languages, you will need a scheme that determines the user's desired language,
  *     which assigns the proper otp.locale.<Language> to otp.config.locale prior to including config.js (this file)
  */
 // step 1: make sure we have some type of otp.config, and otp.config.local defined
@@ -25,11 +25,11 @@ otp.config_defaults = {
         // options to turn stuff on / off on the planner
         options        : {
             showWheelchairForm    : true,   // turn on/off the wheelchair check box (on by default)
-            showIntermediateForms : true,   // turn on/off the ability to plan routes with intermediate points 
+            showIntermediateForms : false,   // turn on/off the ability to plan routes with intermediate points
             showStopIds           : true,   // show stop ids as part of the itinerary
             showPrintButton       : true,   // turn on/off itinerary print button
             showLinksButton       : true,   // turn on/off itinerary links button
-            useOptionDependencies : true,   // trip form changes based on mode and optimize flags (e.g., bike mode has no wheelchair or walk distance forms etc...) 
+            useOptionDependencies : true,   // trip form changes based on mode and optimize flags (e.g., bike mode has no wheelchair or walk distance forms etc...)
             useRouteLongName      : false   // format route name with both short-name and long-name...see / override Itinerary.makeRouteName() for different formatting options
         },
 
@@ -37,12 +37,12 @@ otp.config_defaults = {
         itineraryMessages : {
             icon            : null,
             transit         : "This is an Itinerary Message test...",
-            transit         : null, 
+            transit         : null,
             bus             : null,
             train           : null,
             bicycle         : null,
             bicycle_transit : null,
-            walk            : null 
+            walk            : null
         },
 
         linkTemplates  : [
@@ -93,18 +93,14 @@ otp.config_defaults = {
         // If only one layer is defined in the baseLayer array, the layer switcher is disabled.
         // If there are several layers in the baseLayer array, the layer switcher is enabled and the first layer in the array becomes the default layer
         baseLayer: [
-            //Regular Open Street Map server
-            new OpenLayers.Layer.OSM(
-               "Open Street Map"
-            ),
             //Tiles@home server (it is good to use it to reduce the load on the main OSM server)
-            new OpenLayers.Layer.OSM(
-                "Open Street Map Tiles@home",[
-                    "http://a.tah.openstreetmap.org/Tiles/tile/${z}/${x}/${y}.png",
-                    "http://b.tah.openstreetmap.org/Tiles/tile/${z}/${x}/${y}.png",
-                    "http://c.tah.openstreetmap.org/Tiles/tile/${z}/${x}/${y}.png"
-                    ]
-             ),
+            //new OpenLayers.Layer.OSM(
+            //    "Open Street Map Tiles@home",[
+            //        "http://a.tah.openstreetmap.org/Tiles/tile/${z}/${x}/${y}.png",
+            //        "http://b.tah.openstreetmap.org/Tiles/tile/${z}/${x}/${y}.png",
+            //       "http://c.tah.openstreetmap.org/Tiles/tile/${z}/${x}/${y}.png"
+            //        ]
+            // ),
             new OpenLayers.Layer.OSM(
                 "Open Cycle Map", [
                     "http://a.tile.opencyclemap.org/cycle/${z}/${x}/${y}.png",
@@ -115,8 +111,12 @@ otp.config_defaults = {
                     attribution:"Data <a href='http://creativecommons.org/licenses/by-sa/2.0/'> CC-BY-SA</a> by <a href='www.opencyclemap.org'>OpenCycleMap </a> and <a href='http://openstreetmap.org/'> Open Street Map</a>"
                     }
             ),
+            //Regular Open Street Map server
+            new OpenLayers.Layer.OSM(
+               "Open Street Map"
+            ),
              // here's the MapQuest baseMap option for basemap tiles
-             new OpenLayers.Layer.OSM(
+            new OpenLayers.Layer.OSM(
                 "OSM MapQuest",[
                     "http://otile1.mqcdn.com/tiles/1.0.0/osm/${z}/${x}/${y}.png",
                     "http://otile2.mqcdn.com/tiles/1.0.0/osm/${z}/${x}/${y}.png",
@@ -152,7 +152,7 @@ otp.config_defaults = {
 
     contactPanel: {
     	enabled: true,
-    	panelTitle: 'Give Feedback | Get involved',
+        panelTitle: 'Contact info | Get involved',
         contactHtml: '<div class="disclaimer"><p>To give feedback on the application or report missing data and unexpected/non-optimal routes, you can send me an email at <b>vivien.deparday@gmail.com</b></p><br>'
             + '<p>A brief description of the application is available <a target="_blank" href="http://apps4ottawa.ca/en/apps/91"> here. </a></p><br>'
             + '<p>Since the data used for the routing comes from a open community-produced data source called OpenStreetMap, anyone can help to improve the cycle map and the routing, so if you feel like an amateur cartographer and you want to help, you can get in touch with me or you can start mapping directly with OpenStreetMap, you will find some information <a target="_blank" href="http://wiki.openstreetmap.org/wiki/Main_Page"> here</a>.</p></div>'
@@ -185,7 +185,7 @@ otp.config_defaults = {
         layerNamesStop: 'stops',
         layerNamesRouteHighlighted: 'routes_highlighted',
         layerNamesStopHighlighted: 'stops_highlighted',
-        
+
         // this is the uri to the extended api that proxies to geoserver
         controlStopsUrl: '/opentripplanner-api-extended/wms'
     },
